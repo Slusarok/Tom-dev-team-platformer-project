@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
-    Animator animator;
+    //Animator animator;
     SpriteRenderer sprite;
     BoxCollider2D bc2d;
     public float jumpForse;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Speed_;
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         bc2d = GetComponent<BoxCollider2D>();
@@ -36,12 +36,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && extraJump > 0)
         {
-            animator.SetTrigger("Jump");
+            //animator.SetTrigger("Jump");
             rb.velocity = Vector2.up * jumpForse;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && extraJump == 0 && isGround == true)
         {
-            animator.SetTrigger("Jump");
+            //animator.SetTrigger("Jump");
             rb.velocity = Vector2.up * jumpForse;
         }
     }
@@ -52,19 +52,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
-            animator.SetBool("isRunning", true);
+            //animator.SetBool("isRunning", true);
             sprite.flipX = false;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
-            animator.SetBool("isRunning", true);
+            //animator.SetBool("isRunning", true);
             sprite.flipX = true;
         }
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
-            animator.SetBool("isRunning", false);
+            //animator.SetBool("isRunning", false);
         }
         transform.Translate(horizontalSpeed, 0, 0);
     }
@@ -81,12 +81,12 @@ public class PlayerController : MonoBehaviour
         }
         if (extraJump > 0)
         {
-            animator.SetTrigger("Jump");
+            //animator.SetTrigger("Jump");
             rb.velocity = Vector2.up * jumpForse;
         }
         else if (extraJump == 0 && isGround == true)
         {
-            animator.SetTrigger("Jump");
+            //animator.SetTrigger("Jump");
             rb.velocity = Vector2.up * jumpForse;
         }
     }
