@@ -18,6 +18,7 @@ public class ManController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         bc2d = GetComponent<BoxCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     // Update is called once per frame
