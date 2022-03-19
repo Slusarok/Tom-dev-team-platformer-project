@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 297546013}
-  go: {fileID: 297546012}
   animator: {fileID: 297546016}
+  checkStatus: {fileID: 0}
 --- !u!50 &183217120
 Rigidbody2D:
   serializedVersion: 4
@@ -275,6 +275,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 114283388397936600, guid: 27868821db2dc2a46bd098bb6a5f9a26, type: 3}
   m_PrefabInstance: {fileID: 1631725205}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &288598243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114283388397936599, guid: 27868821db2dc2a46bd098bb6a5f9a26, type: 3}
+  m_PrefabInstance: {fileID: 1631725205}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288598242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac16452a3d7da41ac6579bffd0391b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &288598248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,8 +299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 297546013}
-  go: {fileID: 297546012}
   animator: {fileID: 297546016}
+  checkStatus: {fileID: 288598243}
 --- !u!95 &288598249
 Animator:
   serializedVersion: 3
@@ -309,11 +320,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &297546012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1231782657793538451, guid: 67a53e38263fc0246a11764fdd9588c0, type: 3}
-  m_PrefabInstance: {fileID: 1231782658090535055}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &297546013 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1231782657793538450, guid: 67a53e38263fc0246a11764fdd9588c0, type: 3}
@@ -446,11 +452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114283388397936595, guid: 27868821db2dc2a46bd098bb6a5f9a26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: 5.74
       objectReference: {fileID: 0}
     - target: {fileID: 114283388397936595, guid: 27868821db2dc2a46bd098bb6a5f9a26, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.09
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 114283388397936595, guid: 27868821db2dc2a46bd098bb6a5f9a26, type: 3}
       propertyPath: m_LocalPosition.z
@@ -644,6 +650,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1231782657793538478, guid: 67a53e38263fc0246a11764fdd9588c0, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 297546016}
+    - target: {fileID: 1231782657793538478, guid: 67a53e38263fc0246a11764fdd9588c0, type: 3}
+      propertyPath: checkStatus
+      value: 
+      objectReference: {fileID: 288598243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67a53e38263fc0246a11764fdd9588c0, type: 3}
 --- !u!1001 &3226448277354112721
@@ -653,6 +667,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3226448277346945260, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_TagString
+      value: PatrulWoman
+      objectReference: {fileID: 0}
     - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
       propertyPath: m_RootOrder
       value: 2

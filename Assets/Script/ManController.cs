@@ -5,15 +5,15 @@ using UnityEngine;
 public class ManController : MonoBehaviour
 {
     Rigidbody2D rb;
-    Animator animator;
+    public Animator animator;
     SpriteRenderer sprite;
     BoxCollider2D bc2d;
     public float speed;
     Transform player;
+    public PlayerController checkStatus;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         bc2d = GetComponent<BoxCollider2D>();
@@ -24,19 +24,23 @@ public class ManController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sprite.enabled==true)
+        if(sprite.enabled==true /*&& checkStatus.Hidden==false*/)
         {
-            if(player.position.x - transform.position.x >= 0)
+            if(player.position.x - transform.position.x >= 0 && checkStatus.Hidden == false)
             {
                 sprite.flipX=false;
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
-            else
+            else if(player.position.x - transform.position.x <= 0 && checkStatus.Hidden == false)
             {
                 sprite.flipX = true;
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
-            
+            else
+            {
+                animator.StopPlayback();
+                transform.Translate(0, 0, 0);
+            }
         }
         
     }

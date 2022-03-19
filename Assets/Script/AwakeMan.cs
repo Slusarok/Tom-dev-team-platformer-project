@@ -7,29 +7,44 @@ public class AwakeMan : MonoBehaviour
     Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
     BoxCollider2D bc2d;
-    public GameObject go;
     public Animator animator;
+    public PlayerController checkStatus;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //sprite = GetComponent<SpriteRenderer>();
         bc2d = GetComponent<BoxCollider2D>();
-        //go = GetComponent<GameObject>();
-        //go.SetActive(false);
+        checkStatus.Hidden = false;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void FixedUpdate()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Debug.Log(checkStatus.GetStatus());
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!checkStatus.GetStatus())
         {
-            spriteRenderer.enabled = true;
-            Debug.Log("ALARM");
-            animator.SetBool("Awake",true);
+            if (collision.gameObject.CompareTag("PatrulWoman"))
+            {
+                checkStatus.Hidden = false;
+                spriteRenderer.enabled = true;
+                Debug.Log("ALARM");
+                animator.SetBool("Awake", true);   
+            }
+            else
+            {
+                checkStatus.Hidden = true;
+                animator.SetBool("Awake", false);
+            }
         }
-        else
+        else if (checkStatus.GetStatus())
         {
             animator.SetBool("Awake", false);
+
         }
-        
+
+
+
+
     }
 }
