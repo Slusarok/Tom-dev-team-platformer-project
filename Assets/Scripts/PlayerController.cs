@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForse;
     bool isGround;
     bool isSaveZone;
+    bool isShop;
+    public GameObject ShopButton;
     public Transform groundCheck;
     public Transform saveZoneCheck;
+    public Transform ShopCheck;
     public float checkRadius;
     public LayerMask whatISground;
     public LayerMask whatIsSaveZone;
+    public LayerMask whatIsShop;
     private int extraJump;
     public int extraJumpValue;
     public Vector2 moveVector;
@@ -25,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Speed_;
     private void Start()
     {
+        ShopButton.SetActive(false);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -54,6 +60,16 @@ public class PlayerController : MonoBehaviour
     {
         isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatISground);
         isSaveZone = Physics2D.OverlapCircle(saveZoneCheck.position, checkRadius, whatIsSaveZone);
+        isShop = Physics2D.OverlapCircle(ShopCheck.position, checkRadius, whatIsShop);
+
+        if (isShop)
+        {
+            ShopButton.SetActive(true);
+        }
+        //else
+        //{
+        //    ShopButton.SetActive(false);
+        //}
 
         if (Input.GetKey(KeyCode.W) && isSaveZone==true)
         {
@@ -110,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            //Hidden = false;
+            Hidden = true;
             animator.SetBool("isSlinking", false);
             animator.SetBool("isRunning", false);
             rb.velocity = new Vector2(0, rb.velocity.y);

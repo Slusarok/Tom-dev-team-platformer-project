@@ -24,7 +24,7 @@ public class ManController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sprite.enabled==true /*&& checkStatus.Hidden==false*/)
+        if(sprite.enabled== true /*&& checkStatus.Hidden==false*/)
         {
             if(player.position.x - transform.position.x >= 0 && checkStatus.Hidden == false)
             {
@@ -38,7 +38,7 @@ public class ManController : MonoBehaviour
             }
             else
             {
-                animator.StopPlayback();
+                
                 transform.Translate(0, 0, 0);
             }
         }

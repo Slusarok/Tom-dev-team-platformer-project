@@ -22,8 +22,8 @@ public class AwakeMan : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!checkStatus.GetStatus())
-        {
+        //if (!checkStatus.GetStatus())
+        //{
             if (collision.gameObject.CompareTag("PatrulWoman"))
             {
                 checkStatus.Hidden = false;
@@ -36,12 +36,12 @@ public class AwakeMan : MonoBehaviour
                 checkStatus.Hidden = true;
                 animator.SetBool("Awake", false);
             }
-        }
-        else if (checkStatus.GetStatus())
-        {
-            animator.SetBool("Awake", false);
+        //}
+        //else if (checkStatus.GetStatus())
+        //{
+        //    animator.SetBool("Awake", false);
 
-        }
+        //}
 
     }
 }
