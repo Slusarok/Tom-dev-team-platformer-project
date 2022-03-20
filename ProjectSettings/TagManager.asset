@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - PatrulWoman
+  - Golden Key
+  - Silver Key
+  - Iron Key
+  - SaveDoor
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Ground
   - PatrulWoman
   - Background
-  - 
+  - SaveZone
   - 
   - 
   - 

@@ -10,9 +10,12 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D bc2d;
     public float jumpForse;
     bool isGround;
+    bool isSaveZone;
     public Transform groundCheck;
+    public Transform saveZoneCheck;
     public float checkRadius;
     public LayerMask whatISground;
+    public LayerMask whatIsSaveZone;
     private int extraJump;
     public int extraJumpValue;
     public Vector2 moveVector;
@@ -50,6 +53,24 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatISground);
+        isSaveZone = Physics2D.OverlapCircle(saveZoneCheck.position, checkRadius, whatIsSaveZone);
+
+        if (Input.GetKey(KeyCode.W) && isSaveZone==true)
+        {
+            Hidden = true;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            sprite.color = new Color(0, 0, 0);
+            Debug.Log("savezon");
+        }
+
+        else if (Input.GetKey(KeyCode.S) && isSaveZone == true)
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            sprite.color = new Color(255, 255, 255);
+            Hidden = false;
+            Debug.Log("NOsavezon");
+        }
 
         if (Input.GetKey(KeyCode.D))
         {
@@ -58,6 +79,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(speed, rb.velocity.y);
             sprite.flipX = false;
         }
+
         else if (Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isSlinking", false);
@@ -65,6 +87,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             sprite.flipX = true;
         }
+
         //else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.A))
         else if (Input.GetKey(KeyCode.Q))
         {
@@ -74,6 +97,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-speed/2, rb.velocity.y);
             sprite.flipX = true;
         }
+
         else if (Input.GetKey(KeyCode.E))
         //else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
         {
@@ -83,9 +107,10 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(speed/2, rb.velocity.y);
             sprite.flipX = false;
         }
+
         else
         {
-            Hidden = false;
+            //Hidden = false;
             animator.SetBool("isSlinking", false);
             animator.SetBool("isRunning", false);
             rb.velocity = new Vector2(0, rb.velocity.y);
@@ -93,10 +118,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(horizontalSpeed, 0, 0);
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        rb.gravityScale = 1;
-    }
+   
     public void JumpButton()
     {
         if (isGround == true)
@@ -118,4 +140,22 @@ public class PlayerController : MonoBehaviour
     {
         return Hidden;
     }
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("SaveDoor"))
+    //    {
+            
+    //        if (Input.GetKey(KeyCode.W))
+    //        {
+    //            Hidden = true;
+    //            Debug.Log("savezon");    
+    //        }
+    //        else if (Input.GetKey(KeyCode.S))
+    //        {
+                
+    //            Hidden = false;
+    //            Debug.Log("NOsavezon");
+    //        }
+    //    }
+    //}
 }

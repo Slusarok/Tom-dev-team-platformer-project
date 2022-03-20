@@ -43,8 +43,5 @@ public class AwakeMan : MonoBehaviour
 
         }
 
-
-
-
     }
 }
