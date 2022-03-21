@@ -33,7 +33,6 @@ public class AwakeMan : MonoBehaviour
             }
             else
             {
-                checkStatus.Hidden = true;
                 animator.SetBool("Awake", false);
             }
         //}

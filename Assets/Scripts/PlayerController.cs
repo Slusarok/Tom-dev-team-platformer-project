@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            Hidden = true;
+            Hidden = false;
             animator.SetBool("isSlinking", false);
             animator.SetBool("isRunning", false);
             rb.velocity = new Vector2(0, rb.velocity.y);

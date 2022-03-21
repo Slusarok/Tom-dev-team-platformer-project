@@ -34,7 +34,7 @@ public class WoomanControler : MonoBehaviour
 
     private void Update()
     {
-        hit = Physics2D.Raycast(GrounCheck.position, -transform.up, 1f, Groung);
+        hit = Physics2D.Raycast(GrounCheck.position, -transform.up, 0.1f, Groung);
     }
 
     private void FixedUpdate()
