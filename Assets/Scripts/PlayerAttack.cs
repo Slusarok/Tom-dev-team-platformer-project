@@ -37,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 attacking = false;
-                if (MainHeroSprite.flipX == false)
+                if(MainHeroSprite.flipX == false)
                     attackAreaLeft.SetActive(attacking);
                 else
                     attackAreaRight.SetActive(attacking);
