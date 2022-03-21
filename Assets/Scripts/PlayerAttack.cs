@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer MainHeroSprite;
     private GameObject attackAreaLeft = default;
     private GameObject attackAreaRight = default;
 
@@ -17,12 +18,13 @@ public class PlayerAttack : MonoBehaviour
     {
         attackAreaLeft= transform.GetChild(2).gameObject;
         attackAreaRight = transform.GetChild(3).gameObject;
+        MainHeroSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             Attack();
         }
@@ -35,8 +37,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 attacking = false;
-                attackAreaLeft.SetActive(attacking);
-                attackAreaRight.SetActive(attacking);
+                if (MainHeroSprite.flipX == false)
+                    attackAreaLeft.SetActive(attacking);
+                else
+                    attackAreaRight.SetActive(attacking);
             }
 
         }
@@ -45,7 +49,9 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         attacking = true;
-        attackAreaLeft.SetActive(attacking);
-        attackAreaRight.SetActive(attacking);
+        if (MainHeroSprite.flipX==false)
+            attackAreaLeft.SetActive(attacking);
+        else
+            attackAreaRight.SetActive(attacking);
     }
 }
