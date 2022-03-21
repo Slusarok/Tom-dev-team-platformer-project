@@ -9,6 +9,7 @@ public class AwakeMan : MonoBehaviour
     BoxCollider2D bc2d;
     public Animator animator;
     public PlayerController checkStatus;
+    
 
     void Start()
     {
@@ -24,18 +25,21 @@ public class AwakeMan : MonoBehaviour
     {
         //if (!checkStatus.GetStatus())
         //{
+        
             if (collision.gameObject.CompareTag("PatrulWoman"))
             {
+
                 checkStatus.Hidden = false;
                 spriteRenderer.enabled = true;
                 Debug.Log("ALARM");
-                animator.SetBool("Awake", true);   
+                animator.SetBool("Awake", true);
+                
             }
             else
             {
-                checkStatus.Hidden = true;
                 animator.SetBool("Awake", false);
             }
+        
         //}
         //else if (checkStatus.GetStatus())
         //{

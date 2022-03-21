@@ -14,8 +14,8 @@ public class AttackArea : MonoBehaviour
             Health health = collider.GetComponent<Health>();
             health.Damage(damage);
             rb = collider.GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(10, 10),ForceMode2D.Force);
-            Debug.Log(rb);
+            //rb.AddForce(new Vector2(10, 10),ForceMode2D.Force);
+            //Debug.Log(rb);
             Debug.Log("-3");
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WoomanControler : MonoBehaviour
 {
     Rigidbody2D rb;
-    public LayerMask Groung;
+    public LayerMask PatrulGroung;
     public Transform GrounCheck;
     public bool Right = false;
     RaycastHit2D hit;
@@ -34,7 +34,7 @@ public class WoomanControler : MonoBehaviour
 
     private void Update()
     {
-        hit = Physics2D.Raycast(GrounCheck.position, -transform.up, 1f, Groung);
+        hit = Physics2D.Raycast(GrounCheck.position, -transform.up, 0.1f, PatrulGroung);
     }
 
     private void FixedUpdate()
