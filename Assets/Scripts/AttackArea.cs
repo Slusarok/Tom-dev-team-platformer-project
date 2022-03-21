@@ -5,7 +5,8 @@ using UnityEngine;
 public class AttackArea : MonoBehaviour
 {
     Rigidbody2D rb;
-    private int damage = 3;
+    public int damage = 3;
+    public SpriteRenderer sprite;
     
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -14,9 +15,17 @@ public class AttackArea : MonoBehaviour
             Health health = collider.GetComponent<Health>();
             health.Damage(damage);
             rb = collider.GetComponent<Rigidbody2D>();
-            //rb.AddForce(new Vector2(10, 10),ForceMode2D.Force);
+            if(sprite.flipX==false)
+            {
+                rb.AddForce(new Vector2(10, 0), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+            }
+
             //Debug.Log(rb);
-            Debug.Log("-3");
+            //Debug.Log("-3");
         }
     }
 }
