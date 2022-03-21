@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5074127783774771639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3226448277346945260, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_TagString
+      value: PatrulWoman
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156369, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156371, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156462, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156463, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_Name
+      value: patrul-wooman
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226448278139156463, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a38b50b54d45d5498f52d3aa96d5452, type: 3}

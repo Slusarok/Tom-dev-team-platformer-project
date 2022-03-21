@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] SpriteRenderer MainHeroSprite;
     private GameObject attackAreaLeft = default;
     private GameObject attackAreaRight = default;
-
+    Animator animator;
     private bool attacking = false;
 
     private float timeToAttack = 0.25f;
@@ -16,7 +16,8 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackAreaLeft= transform.GetChild(2).gameObject;
+        animator = GetComponent<Animator>();
+        attackAreaLeft = transform.GetChild(2).gameObject;
         attackAreaRight = transform.GetChild(3).gameObject;
         MainHeroSprite = GetComponent<SpriteRenderer>();
     }
@@ -26,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
+            animator.SetTrigger("Attack");
             Attack();
         }
 

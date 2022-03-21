@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    
     [SerializeField] private int health = 100;
 
     private int MAX_HEALTH = 100;
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
+
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    //Damage(10);
@@ -59,6 +65,6 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Debug.Log("I am Dead!");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
