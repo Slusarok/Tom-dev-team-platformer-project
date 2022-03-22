@@ -5,9 +5,13 @@ using UnityEngine;
 public class AttackArea : MonoBehaviour
 {
     Rigidbody2D rb;
+    //public Animator animator;
     public int damage = 3;
     public SpriteRenderer sprite;
-    
+    private void Start()
+    {
+        //animator = GetComponent<Animator>();
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<Health>() != null)
@@ -17,11 +21,13 @@ public class AttackArea : MonoBehaviour
             rb = collider.GetComponent<Rigidbody2D>();
             if(sprite.flipX==false)
             {
-                rb.AddForce(new Vector2(10, 0), ForceMode2D.Impulse);
+                //animator.SetTrigger("Slam");
+                rb.AddForce(new Vector2(3, 0), ForceMode2D.Impulse);
             }
             else
             {
-                rb.AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+                //animator.SetTrigger("Slam");
+                rb.AddForce(new Vector2(-3, 0), ForceMode2D.Impulse);
             }
 
             //Debug.Log(rb);

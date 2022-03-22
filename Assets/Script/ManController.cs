@@ -10,6 +10,7 @@ public class ManController : MonoBehaviour
     BoxCollider2D bc2d;
     public float speed;
     Transform player;
+    
     public PlayerController checkStatus;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class ManController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         bc2d = GetComponent<BoxCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,11 +30,13 @@ public class ManController : MonoBehaviour
             if(player.position.x - transform.position.x >= 0 && checkStatus.Hidden == false)
             {
                 sprite.flipX=false;
+                animator.SetBool("Walking",true);
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
             else if(player.position.x - transform.position.x <= 0 && checkStatus.Hidden == false)
             {
                 sprite.flipX = true;
+                animator.SetBool("Walking", true);
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
             else

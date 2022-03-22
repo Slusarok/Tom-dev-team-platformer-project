@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    
+    public GameObject DeathPanel;
     [SerializeField] private int health = 100;
 
     private int MAX_HEALTH = 100;
@@ -64,7 +64,21 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("I am Dead!");
-        gameObject.SetActive(false);
+        if (gameObject.name == "MainHero")
+        {
+            gameObject.SetActive(false);
+            Debug.Log("gameover");
+            Time.timeScale = 0;
+            DeathPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("You Kill citizen");
+            gameObject.SetActive(false);
+            
+        }
+        
+
+        
     }
 }

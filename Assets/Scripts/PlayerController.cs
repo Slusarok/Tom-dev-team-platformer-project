@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
+    public Animator seller;
     SpriteRenderer sprite;
     BoxCollider2D bc2d;
     public float jumpForse;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     bool isSaveZone;
     bool isShop;
     public GameObject ShopButton;
+    public GameObject ShopPrewie;
     public Transform groundCheck;
     public Transform saveZoneCheck;
     public Transform ShopCheck;
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Speed_;
     private void Start()
     {
-        ShopButton.SetActive(false);
+        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -64,12 +66,19 @@ public class PlayerController : MonoBehaviour
 
         if (isShop)
         {
-            ShopButton.SetActive(true);
+            ShopPrewie.SetActive(true);
+
+            if (Input.GetKey(KeyCode.M))
+            {
+                seller.SetBool("Deal",true);
+                ShopButton.SetActive(true);
+            }
         }
-        //else
-        //{
-        //    ShopButton.SetActive(false);
-        //}
+        else
+        {
+            seller.SetBool("Deal", false);
+        }
+        
 
         if (Input.GetKey(KeyCode.W) && isSaveZone==true)
         {
@@ -132,6 +141,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
         transform.Translate(horizontalSpeed, 0, 0);
+
     }
 
    
@@ -144,11 +154,13 @@ public class PlayerController : MonoBehaviour
         if (extraJump > 0)
         {
             animator.SetTrigger("Jump");
+            rb.gravityScale = 1;
             rb.velocity = Vector2.up * jumpForse;
         }
         else if (extraJump == 0 && isGround == true)
         {
             animator.SetTrigger("Jump");
+            rb.gravityScale = 1;
             rb.velocity = Vector2.up * jumpForse;
         }
     }
@@ -156,11 +168,26 @@ public class PlayerController : MonoBehaviour
     {
         return Hidden;
     }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.tag == "Ladder")
+        {
+            rb.gravityScale = 0;
+        }
+
+    }
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.transform.tag == "Ladder")
+        {
+            rb.gravityScale = 1;
+        }
+    }
     //public void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if (collision.gameObject.CompareTag("SaveDoor"))
     //    {
-            
+
     //        if (Input.GetKey(KeyCode.W))
     //        {
     //            Hidden = true;
@@ -168,7 +195,7 @@ public class PlayerController : MonoBehaviour
     //        }
     //        else if (Input.GetKey(KeyCode.S))
     //        {
-                
+
     //            Hidden = false;
     //            Debug.Log("NOsavezon");
     //        }

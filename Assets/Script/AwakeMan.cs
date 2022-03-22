@@ -19,19 +19,19 @@ public class AwakeMan : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Debug.Log(checkStatus.GetStatus());
+        //Debug.Log(checkStatus.GetStatus());
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         //if (!checkStatus.GetStatus())
         //{
         
-            if (collision.gameObject.CompareTag("PatrulWoman"))
+            if (collision.gameObject.CompareTag("Player"))
             {
 
                 checkStatus.Hidden = false;
                 spriteRenderer.enabled = true;
-                Debug.Log("ALARM");
+                //Debug.Log("ALARM");
                 animator.SetBool("Awake", true);
                 
             }
